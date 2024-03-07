@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: rgb(111, 111, 247);
+            height: 50px;
+            position: sticky;
+            top: 0;
+        }
+        label.logo {
+            color: white;
+            line-height: 50px;
+            margin-left: 30px;
+            font-size: 30px;
+        }
+        #icon {
+            color: white;
+            font-size: 18px;
+            float: right;
+            line-height: 50px;
+            margin-right: 30px;
+            display: none;
+        }
+        .navbar {
+            float: right;
+            list-style: none;
+            margin-right: 30px;
+        }
+        ul li {
+            display: inline-block;
+            line-height: 50px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 17px;
+        }
+        ul li a:hover {
+            background-color: rgb(42, 42, 139);
+        }
+        section {
+            background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('background.png');
+            height: calc(100vh - 50px);
+        }
+        section ul li{
+            display: block;
+            background-color: gray;
+            text-align: center;
+            display: none;
+        }
+        section ul li a {
+            text-decoration: none;
+            display: block;
+        }
+        footer {
+            background-color: gray;
+            color: white;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+        .sub-nav{
+            position: absolute;
+            display: none;
+        }
+        li:hover .sub-nav{
+            display: block;
+        }
+        .sub-nav li {
+            display: block;
+            background:rgb(111, 111, 247);
+        }
+        .sub-nav li a {
+            display: block;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 556px){
+            #icon {
+                display: inline-block;
+            }
+            .navbar {
+                display: none;
+            }
+            section ul li {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <label class="logo">LogoX</label>
+        <strong id="icon">Menu</strong>
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a>
+            </li>
+            <li><a href="#">Services</a>
+                <ul class="sub-nav">
+                    <li><a href="#">T.V. Repairing</a></li>
+                    <li><a href="#">Laptop Repairing</a></li>
+                    <li><a href="#">Desktop Repairing</a></li>
+                </ul></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+    </nav>
+    <section>
+        <ul id="toggle" style="display: none">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+    </section>
+    <footer>
+        &copy; All rights are reserved 2024-2025
+    </footer>
+    <script>
+        let icon = document.getElementById('icon');
+        let toggle = document.getElementById('toggle');
+        icon.addEventListener('click', () => {
+            if(toggle.style.display === "block"){
+                toggle.style.display = 'none';
+            } else {
+                toggle.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+</html>
